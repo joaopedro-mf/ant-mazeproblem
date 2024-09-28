@@ -61,8 +61,11 @@ class Map:
     
     def _create_nodes(self):
         return [[self.Nodes(i, j, self.occupancy_grid) 
-                 for j in range(self.occupancy_grid.shape[1])] 
+                for j in range(self.occupancy_grid.shape[1])] 
                 for i in range(self.occupancy_grid.shape[0])]
+        
+    def _check_point_out_limit(self, point, limit):
+        return point < 0 or point > limit-1
     
     
     def cut_occupancy_grid_from_point(self, point, radius_vision):
@@ -76,10 +79,10 @@ class Map:
         down_right_point_view = ( point[0] + radius_vision , point[1] + radius_vision)
         
         for i in range(up_left_point_view[0],down_right_point_view[0]):
-            if i < 0 or i > x_max:
+            if self._check_point_out_limit(i, x_max):
                 continue
             for j in range(up_left_point_view[1],down_right_point_view[1]):
-                if j < 0 or j > y_max :
+                if self._check_point_out_limit(j, y_max) :
                     continue
                 new_view_world[i][j] = self.occupancy_grid[i][j]
         
