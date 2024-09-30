@@ -31,13 +31,9 @@ The process works as follows:
 
 1- Using GUI interface
 
-"""
-python3 ./solver.py
+    python3 ./solver.py
 
-"""
 
 2- Passing params
 
-"""
-python3 ./solver.py -a 10 -i 100 -m map1.txt -p 0.1 -pa 1 -r 5 -d
-"""
+    python3 ./solver.py -a 10 -i 100 -m map1.txt -p 0.1 -pa 1 -r 5 -d
