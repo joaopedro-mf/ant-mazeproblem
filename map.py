@@ -53,7 +53,6 @@ class Map:
             return edges
         
     def __init__(self, occupancy, init_node, final_node):
-        ## resume constructor to solver alg. 
         self.occupancy_grid = occupancy
         self.initial_node = init_node
         self.final_node = final_node
@@ -66,7 +65,6 @@ class Map:
         
     def _check_point_out_limit(self, point, limit):
         return point < 0 or point > limit-1
-    
     
     def cut_occupancy_grid_from_point(self, point, radius_vision):
         ## to facilite, the new view load the size of full map but with only region 
@@ -88,7 +86,6 @@ class Map:
         
         return np.copy(new_view_world)
 
-    
     def represent_map(self):
         ''' Represents the map '''
         # Map representation

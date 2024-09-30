@@ -2,6 +2,7 @@
 
 import numpy as np
 
+# not my code yet
 class AntColony:
     ''' Class used for handling the behaviour of the whole ant colony '''
 

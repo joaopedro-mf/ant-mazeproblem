@@ -2,7 +2,6 @@ from map import Map, MapFile
 from ant_colony import AntColony
 from interface import GuiInterface
 
-PAD_GUI_SIZE = 50
 FAKE_AREA_SIZE = 1
 FAKE_AREA_LENGTH = 4
 
@@ -67,8 +66,9 @@ if __name__ == '__main__':
         it = 0
         pos_ant = full_map.initial_node
         final_obj = full_map.final_node
-        real_path = [full_map.initial_node]
         vision_rad_ant = params["rad"] - 1 
+        
+        real_path = [pos_ant]
         
         while(it < params["itt"]):
             view_occupancy = full_map.cut_occupancy_grid_from_point(pos_ant, params["rad"])
@@ -106,7 +106,6 @@ if __name__ == '__main__':
         print(e)
         print("nao convergiu")
     
-    print(real_path)
-    print(f"size -> {len(real_path)}")
+    print(f"size of path -> {len(real_path)}")
     interface.view_path(real_path, full_map.occupancy_grid, full_map.initial_node, full_map.final_node)
     
